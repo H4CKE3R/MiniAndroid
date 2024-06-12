@@ -1,0 +1,33 @@
+// ==UserScript==
+// @name          MiniAndroid!
+// @Author        H4CKE3R
+// @version       1.0
+// @description   Is now.gg, Appetize and any other android emulator blocked by your administration? well don't be so gloomy for I hold the solution!     
+// @grant         none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    var iframe = document.createElement('iframe');
+    iframe.className = 'responsive-iframe';
+    iframe.src = 'https://stream.myandroid.org/osessionx74/#/?username=guest02&password=server0102';
+    iframe.width = '720px';
+    iframe.style.width = '760px';
+
+    // Function to toggle full screen
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            iframe.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    }
+
+    // Add full-screen functionality on double-click
+    iframe.addEventListener('dblclick', toggleFullScreen);
+
+    document.body.appendChild(iframe);
+})();
